@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <constructor-arg>
+            <bean class="com.zaxxer.hikari.HikariConfig">
+                <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+                <property name="jdbcUrl" value="jdbc:mysql://{ip}:{port}/{dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="900900"/>
+                <property name="connectionTestQuery" value="SELECT 1"/>
+                <property name="connectionTimeout" value="30000"/>
+                <property name="idleTimeout" value="600000"/>
+                <property name="maxLifetime" value="1800000"/>
+                <property name="maximumPoolSize" value="10"/>
+                <property name="minimumIdle" value="5"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!--&lt;!&ndash; 驼峰 &ndash;&gt;-->
+        <property name="configuration">
+            <bean class="org.apache.ibatis.session.Configuration">
+                <!-- 驼峰 -->
+                <property name="mapUnderscoreToCamelCase" value="true"/>
+                <property name="callSettersOnNulls" value="true"/>
+            </bean>
+        </property>
+
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!-- 给出需要扫描Dao接口包 -->
+        <property name="basePackage" value="com.techiekernel.dao"/>
+    </bean>
+
+
+</beans>

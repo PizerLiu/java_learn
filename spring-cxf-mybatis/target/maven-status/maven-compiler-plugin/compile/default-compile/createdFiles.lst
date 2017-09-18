@@ -1,0 +1,7 @@
+com/techiekernel/service/Impl/FooBarServiceImpl.class
+com/techiekernel/vo/StudentVo.class
+com/techiekernel/rest/FooBarWS.class
+com/techiekernel/service/FooBarService.class
+com/techiekernel/dao/FooBarDao.class
+com/common/ResponseUtils.class
+com/common/commonVo/ResponseVo.class

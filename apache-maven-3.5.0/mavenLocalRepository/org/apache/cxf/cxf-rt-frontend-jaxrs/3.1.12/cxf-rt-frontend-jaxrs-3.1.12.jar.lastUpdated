@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Mon Sep 18 23:17:57 CST 2017
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1505747877127
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.apache.cxf\:cxf-rt-frontend-jaxrs\:jar\:3.1.12 from/to central (https\://repo.maven.apache.org/maven2)\: /Users/liuchong/git/java_study/apache-maven-3.5.0/mavenLocalRepository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.12/cxf-rt-frontend-jaxrs-3.1.12.jar.part (No such file or directory)

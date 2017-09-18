@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config/>
+
+	<import resource="mybatis.xml"/>
+
+	<!-- 设置需要进行Spring注解扫描的类包 -->
+	<!--<context:component-scan base-package="com.techiekernel.service.*"/>-->
+
+	<bean id="FooBarService" class="com.techiekernel.service.Impl.FooBarServiceImpl" />
+
+	<bean id="fooBarWsClass" class="com.techiekernel.rest.FooBarWS" scope="prototype" autowire="default" />
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<jaxrs:server id="fooBarWs" address="/foobar">
+		<jaxrs:serviceBeans>
+			<ref bean="fooBarWsClass" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+</beans>
