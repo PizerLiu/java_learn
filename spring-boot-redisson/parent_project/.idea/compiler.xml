@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="project_common" />
+        <module name="project_one" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="parent_project" target="1.8" />
+      <module name="project_common" target="1.8" />
+      <module name="project_one" target="1.8" />
+      <module name="spring-boot-redisson" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
