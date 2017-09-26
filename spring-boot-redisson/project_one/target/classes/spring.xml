@@ -17,7 +17,7 @@
             project.common.utils"/>
 
     <redisson:client>
-        <redisson:single-server address="106.14.20.143:16379" connection-pool-size="1000" />
+        <redisson:single-server address="{ip}:{port}" connection-pool-size="1000" />
     </redisson:client>
 
     <!--&lt;!&ndash; redis集群配置 &ndash;&gt;-->
